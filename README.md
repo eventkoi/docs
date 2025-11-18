@@ -12,7 +12,7 @@ This repository contains the public documentation for EventKoi, including the Ev
 
 Learn how to query events, calendars, and instances using the EventKoi REST API.
 
-➡️ **[Event Query API Documentation](./docs/event-query-api.md)**
+➡️ **[Event Query API Documentation](./event-query.md)**
 
 ---
 
