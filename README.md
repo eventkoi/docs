@@ -1,6 +1,6 @@
-# EventKoi Documentation
+# EventKoi Developer Documentation
 
-Welcome to the official documentation hub for **EventKoi**, a modern, developer-friendly WordPress events calendar plugin.
+Welcome to the official developer documentation hub for **EventKoi**, a modern, developer-friendly WordPress events calendar plugin.
 
 This repository contains the public documentation for EventKoi, including the Event Query API used by the Event Query Block.
 
