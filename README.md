@@ -2,14 +2,7 @@
 
 Welcome to the official documentation hub for **EventKoi**, a modern, fast, developer-friendly WordPress events calendar plugin.
 
-This repository contains the public documentation for EventKoi, including:
-
-- Event Query API
-- Calendar & Event Objects
-- Recurring Event Logic
-- Frontend Rendering
-- Block Editor Integration
-- Developer Examples and Guides
+This repository contains the public documentation for EventKoi, including the Event Query API used by the Event Query Block, Event Series templates, and frontend hydration.
 
 ---
 
@@ -17,69 +10,25 @@ This repository contains the public documentation for EventKoi, including:
 
 ### Event Query API
 
-Full REST API documentation for querying events, calendars, instances, and filtered results:
+Learn how to query events, calendars, and instances using the EventKoi REST API.
 
 ➡️ **[Event Query API Documentation](./docs/event-query-api.md)**
 
-(If published in a separate repo or GitHub Pages, replace above with a URL.)
-
 ---
 
-## 📚 Additional Docs (Coming Soon)
+## 🔧 About EventKoi
 
-- Calendar Structure & Meta
-- Event Object Structure (PHP + REST)
-- Recurring Rule Engine (RRule)
-- EventKoi Gutenberg Blocks
-- Theme Template Overrides
-- Injecting Custom Data into Events
-- Building Custom Archive Displays
-- JavaScript Utilities & Timeline Formatting
+EventKoi is a flexible events calendar plugin for WordPress that supports:
 
----
-
-## 🔧 Developer Resources
-
-EventKoi is built using:
-
-- **WordPress PHP API**
-- **Block Editor (React)**
-- **TailwindCSS**
-- **RRule library for recurrence**
-- **Modern build process (ESBuild/Vite)**
-
-If you'd like to contribute documentation or request new sections, feel free to open a GitHub issue (if repo is public) or contact the team.
-
----
-
-## 💬 Support
-
-For support, please visit:
-
-**https://eventkoi.com/support**  
-(or replace with your actual support page)
-
----
-
-## 📄 License
-
-Documentation is licensed under the **MIT License** unless otherwise noted.
-
----
-
-## ⭐ About EventKoi
-
-EventKoi is a flexible, developer-focused events calendar for WordPress designed to be fast, extensible, and modern.
-
-Key features:
-
-- Single, multi-day, selected-day, and continuous events
-- Recurring rules with overrides
-- Event series templates
+- Single-day events
+- Multi-day and continuous events
+- Selected-day events
+- Recurring events using RRule
+- Event Series pages
 - Event Query Block with dynamic hydration
-- Calendar taxonomies
-- REST API optimized for frontend frameworks
-- Full timezone support (WP timezone model)
+- Full WordPress timezone support
+
+This documentation provides technical references for developers integrating with EventKoi’s REST and internal APIs.
 
 ---
 
