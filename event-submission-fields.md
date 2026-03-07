@@ -59,7 +59,6 @@ These are stored with `update_post_meta()` on the `eventkoi_event` post.
 | Meta key | Type | Example |
 | --- | --- | --- |
 | `description` | HTML/string | Full event description |
-| `summary` | derived string | Generated from `description`; not a primary submission field |
 | `image` | URL string | `https://example.com/image.jpg` |
 | `image_id` | int | WordPress attachment ID |
 | `template` | string | Template slug/selection |
@@ -114,9 +113,9 @@ and store `event_days` like this:
 ]
 ```
 
-## Recommended companion fields
+## Optional companion fields
 
-These are also commonly stored and help keep the event data complete:
+These top-level date fields exist in EventKoi and are commonly present on saved events, but for imports/submissions the primary source of truth should still be `event_days` for standard events or `recurrence_rules` for recurring events.
 
 ```php
 start_date      = '2026-04-15 18:00:00'
@@ -193,12 +192,13 @@ weekday-of-month
 
 ### `weekdays`
 
-Used mainly for weekly rules.
-Typical values are weekday abbreviations such as:
+Used mainly for weekly rules. In test-created payloads, string weekday abbreviations such as the following work:
 
 ```php
 ['MO', 'WE', 'FR']
 ```
+
+Be aware that existing events created through the EventKoi editor may normalize weekdays differently in runtime output. If you are writing recurring rules directly, validate one saved event on the target site before doing a large import.
 
 ### `months`
 
@@ -408,6 +408,14 @@ update_post_meta( $event_id, 'recurrence_rules', [
   ],
 ] );
 ```
+
+---
+
+## Important note on `description` vs `summary`
+
+For submissions/imports, treat `description` as the real content field.
+
+`summary` is not a primary submitted field in the current EventKoi contract. It is derived from `description` at runtime.
 
 ---
 
