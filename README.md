@@ -14,6 +14,12 @@ Learn how to query events, calendars, and instances using the EventKoi REST API.
 
 ➡️ **[Event Query API Documentation](./event-query.md)**
 
+### Event Submission Fields
+
+Reference for creating or importing `eventkoi_event` posts from tools like Gravity Forms or custom integrations.
+
+➡️ **[Event Submission Field Reference](./event-submission-fields.md)**
+
 ---
 
 ## 🔧 About EventKoi
