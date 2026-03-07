@@ -59,7 +59,7 @@ These are stored with `update_post_meta()` on the `eventkoi_event` post.
 | Meta key | Type | Example |
 | --- | --- | --- |
 | `description` | HTML/string | Full event description |
-| `summary` | string | Short summary |
+| `summary` | derived string | Generated from `description`; not a primary submission field |
 | `image` | URL string | `https://example.com/image.jpg` |
 | `image_id` | int | WordPress attachment ID |
 | `template` | string | Template slug/selection |
