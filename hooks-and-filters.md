@@ -12,10 +12,10 @@ Auto-generated inventory of every action and filter exposed by EventKoi Pro and 
 - [Events](#events) — 80 hooks (70 filters, 10 actions)
 - [Calendars](#calendars) — 34 hooks (29 filters, 5 actions)
 - [RSVPs](#rsvps) — 19 hooks (19 filters, 0 actions)
-- [Tickets, orders & checkout](#tickets-orders-checkout) — 13 hooks (13 filters, 0 actions)
-- [Blocks & shortcodes](#blocks-shortcodes) — 1 hooks (1 filters, 0 actions)
-- [Page builders & loops](#page-builders-loops) — 2 hooks (2 filters, 0 actions)
-- [Admin & UI](#admin-ui) — 3 hooks (2 filters, 1 actions)
+- [Tickets and orders](#tickets-and-orders) — 13 hooks (13 filters, 0 actions)
+- [Blocks and shortcodes](#blocks-and-shortcodes) — 1 hooks (1 filters, 0 actions)
+- [Page builders and loops](#page-builders-and-loops) — 2 hooks (2 filters, 0 actions)
+- [Admin and UI](#admin-and-ui) — 3 hooks (2 filters, 1 actions)
 - [Other](#other) — 53 hooks (43 filters, 10 actions)
 
 ## Events
@@ -2052,7 +2052,7 @@ apply_filters( 'eventkoi_rsvp_qr_url', $qr_url, $checkin_url, $token, $event_id,
 
 - Pro: `includes/core/class-rsvps.php:952`
 
-## Tickets, orders & checkout
+## Tickets and orders
 
 ### Filters
 
@@ -2250,7 +2250,7 @@ apply_filters( 'eventkoi_ticket_qr_url', $qr_url, $checkin_url, $checkin_code, $
 
 - Pro: `includes/core/class-ticket-emails.php:330`
 
-## Blocks & shortcodes
+## Blocks and shortcodes
 
 ### Filters
 
@@ -2272,7 +2272,7 @@ apply_filters( 'eventkoi_block_live_stripe_on_staging', true )
 
 - Pro: `includes/payments/class-stripe.php:742`
 
-## Page builders & loops
+## Page builders and loops
 
 ### Filters
 
@@ -2304,7 +2304,7 @@ apply_filters( 'eventkoi_loop_default_window_seconds', YEAR_IN_SECONDS );
 
 - Pro: `includes/core/class-beaver-loop-query.php:182`
 
-## Admin & UI
+## Admin and UI
 
 ### Filters
 
