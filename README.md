@@ -20,6 +20,12 @@ Reference for creating or importing `eventkoi_event` posts from tools like Gravi
 
 ➡️ **[Event Submission Field Reference](./event-submission-fields.md)**
 
+### Hooks & Filters
+
+Complete inventory of every action and filter exposed by EventKoi Pro and Lite — for extending the plugin without modifying core files.
+
+➡️ **[Hooks & Filters Reference](./hooks-and-filters.md)**
+
 ---
 
 ## 🔧 About EventKoi
