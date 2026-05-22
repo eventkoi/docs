@@ -20,6 +20,12 @@ Reference for creating or importing `eventkoi_event` posts from tools like Gravi
 
 ➡️ **[Event Submission Field Reference](./event-submission-fields.md)**
 
+### Gravity Forms Event Submission
+
+End-to-end walkthrough for building a public **Submit an Event** form with Gravity Forms, with a tested handler that produces correctly structured EventKoi events.
+
+➡️ **[Gravity Forms Event Submission Guide](./gravity-forms-event-submission.md)**
+
 ### Hooks & Filters
 
 Complete inventory of every action and filter exposed by EventKoi Pro and Lite — for extending the plugin without modifying core files.
