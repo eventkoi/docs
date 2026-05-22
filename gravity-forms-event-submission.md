@@ -42,9 +42,27 @@ In **Forms → New Form**, create a form titled **Submit an Event** with these f
 | 7 | Single Checkbox | All-day event |   | One choice, value `yes`. When checked, times are ignored. |
 | 8 | Single Line Text | Venue name |   | Physical location name. |
 | 9 | Single Line Text | Venue address |   | Address line. |
-| 10 | Drop Down | Calendar | ✓ | Choices = your EventKoi calendars. The **value** of each choice must be the calendar's term ID (e.g. `15508`). |
+| 10 | Drop Down | Calendar | optional | Choices = your EventKoi calendars. The **value** of each choice must be the calendar's term ID (e.g. `15508`). See [Calendar assignment modes](#calendar-assignment-modes) below. |
 
 Gravity Forms assigns field IDs in creation order; the snippet hard-codes `1` through `10`. If you reorder or insert fields, update the IDs in the snippet to match.
+
+### Calendar assignment modes
+
+You don't have to ask the submitter which calendar their event belongs in. Pick the mode that matches your editorial workflow:
+
+| Mode | Form behaviour | What the handler does |
+|---|---|---|
+| **Required** | Field 10 is required. Submitter must pick a calendar. | Uses their choice. |
+| **Optional** (default in the snippet below) | Field 10 is optional. Submitter may leave it blank. | Falls back to the `eventkoi_default_submission_calendar` option if blank, otherwise leaves the event unassigned. |
+| **Hidden** | Remove field 10 entirely. | Always uses the `eventkoi_default_submission_calendar` option. Admin reroutes at review time. |
+
+Set the fallback calendar once:
+
+```php
+update_option( 'eventkoi_default_submission_calendar', <YOUR_CALENDAR_TERM_ID> );
+```
+
+The handler in Step 2 already wires the fallback — if the form submission doesn't carry a calendar term, the handler reads this option.
 
 ### Why field IDs matter
 
@@ -214,8 +232,63 @@ add_action( 'gform_after_submission', function ( $entry, $form ) {
 
     update_post_meta( $event_id, 'attendance_mode', 'none' );
 
+    // Calendar: use the submitter's choice if any, otherwise fall back to the
+    // configured default-submission-calendar, otherwise leave the event
+    // unassigned for the admin to set at review time.
+    if ( $cal_term_id <= 0 ) {
+        $cal_term_id = (int) get_option( 'eventkoi_default_submission_calendar', 0 );
+    }
     if ( $cal_term_id > 0 ) {
         wp_set_post_terms( $event_id, array( $cal_term_id ), 'event_cal', false );
+    }
+
+    // ---- Custom fields ----
+    // To expose an EventKoi custom field on the form, add ONE line below:
+    //   <GF field ID> => '<eventkoi field_key>',
+    // The EventKoi field must already exist under Settings → Custom fields.
+    // The "field_key" is the slug shown there (without the `event_field_` prefix).
+    $custom_field_map = array(
+        // 11 => 'cost',
+        // 12 => 'dress_code',
+    );
+
+    $custom_field_keys = array();
+    foreach ( $custom_field_map as $gf_field_id => $ek_field_key ) {
+        $raw = rgar( $entry, (string) $gf_field_id );
+        if ( null === $raw ) {
+            continue;
+        }
+        if ( is_array( $raw ) ) {
+            $value = array_values(
+                array_filter(
+                    array_map( 'sanitize_text_field', $raw ),
+                    static fn( $v ) => '' !== $v
+                )
+            );
+            if ( empty( $value ) ) {
+                continue;
+            }
+        } else {
+            $value = trim( (string) $raw );
+            if ( '' === $value ) {
+                continue;
+            }
+            $value = sanitize_text_field( $value );
+        }
+        $key = sanitize_key( $ek_field_key );
+        if ( '' === $key ) {
+            continue;
+        }
+        update_post_meta( $event_id, 'event_field_' . $key, $value );
+        $custom_field_keys[] = $key;
+    }
+
+    if ( ! empty( $custom_field_keys ) ) {
+        update_post_meta(
+            $event_id,
+            'eventkoi_custom_fields_keys',
+            array_values( array_unique( $custom_field_keys ) )
+        );
     }
 }, 10, 2 );
 ```
@@ -353,6 +426,106 @@ if ( $url ) {
 Recurring events use a different storage shape (`date_type = recurring` plus a `recurrence_rules` array). They are intentionally out of scope for a public submission form — the rule shape is non-trivial and easy to fill out incorrectly. The recommended pattern: accept simple single/multi-day events through Gravity Forms, then let an admin convert to recurring inside the EventKoi editor when needed.
 
 See the [Event Submission Field Reference](./event-submission-fields.md#5-recurring-event-rule-shape) for the recurring rule shape if you need to extend the handler.
+
+---
+
+## Custom fields
+
+EventKoi lets you define your own fields under **Settings → Custom fields** — text, textarea, rich text, URL, radio, checkbox, dropdown. Once a custom field is defined there, you can expose it on the Gravity Form so the resulting event lands with your custom data already populated.
+
+The handler in Step 2 already includes a `$custom_field_map` block. Wiring up a custom field is two changes: add the Gravity Forms input, then add one line to the map.
+
+### 1 — Create the field in EventKoi
+
+In wp-admin → **EventKoi → Settings → Custom fields → Add new**, set:
+
+- **Field name** — the human label that renders on the public event page (e.g. `Cost`)
+- **Field ID** — the slug stored in the database (e.g. `cost`). This is what you'll reference from the map.
+- **Type** — text, textarea, rich text, URL, radio, checkbox, or dropdown
+- For radio / checkbox / dropdown: enter the options, one per line
+
+Create the field through this admin screen — not via direct database insert — so EventKoi normalises the `field_key` correctly. If the labels render as raw slugs (e.g. `cost: Free` instead of `Cost: Free`) on the public event page, that's the symptom of a malformed `field_key` row.
+
+### 2 — Add the matching input to your form
+
+In Forms → your form → Add field. Pick the Gravity Forms input that matches the EventKoi field type:
+
+| EventKoi field type | Gravity Forms input | Stored value shape |
+|---|---|---|
+| Text | Single Line Text | string |
+| Textarea | Paragraph Text | string |
+| Rich text | Paragraph Text (HTML allowed) | HTML string |
+| URL | Website / Single Line Text | URL string |
+| Radio | Radio Buttons | string (the chosen option) |
+| Checkbox (single) | Single Checkbox | `'1'` when checked, `''` when not |
+| Checkbox (multi) | Checkboxes (multiple choices) | array of chosen option values |
+| Dropdown | Drop Down | string (the chosen option) |
+
+For radio / checkbox / dropdown the **value** of each choice in Gravity Forms must match the option string you typed in the EventKoi field settings — otherwise the value won't render.
+
+Note the new Gravity Forms field ID (visible in the field's settings sidebar).
+
+### 3 — Add one line to the handler's `$custom_field_map`
+
+```php
+$custom_field_map = array(
+    11 => 'cost',         // GF field ID  =>  EventKoi field_key
+    12 => 'dress_code',
+);
+```
+
+That's it. The handler walks the map on every submission, sanitises each value (single string or array), writes `event_field_{field_key}` post meta, and appends to `eventkoi_custom_fields_keys` so EventKoi's editor recognises the event has custom data.
+
+### Tip — pre-populate a Gravity Forms dropdown from a custom field's options
+
+If your custom dropdown's options change over time, sync them into the Gravity Form so you don't keep two lists in sync by hand. Replace `<FORM_ID>` and `<GF_FIELD_ID>` to match your form, and `<EK_FIELD_KEY>` to the EventKoi field key whose options you want to mirror:
+
+```php
+add_filter( 'gform_pre_render_<FORM_ID>',       'ek_gf_inject_custom_field_choices' );
+add_filter( 'gform_pre_validation_<FORM_ID>',   'ek_gf_inject_custom_field_choices' );
+add_filter( 'gform_admin_pre_render_<FORM_ID>', 'ek_gf_inject_custom_field_choices' );
+
+function ek_gf_inject_custom_field_choices( $form ) {
+    global $wpdb;
+
+    $row = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT options FROM {$wpdb->prefix}eventkoi_fields WHERE field_key = %s AND status = 'active'",
+            '<EK_FIELD_KEY>'
+        )
+    );
+    if ( ! $row ) {
+        return $form;
+    }
+
+    $decoded = json_decode( (string) $row->options, true );
+    $options = isset( $decoded['options'] ) && is_array( $decoded['options'] ) ? $decoded['options'] : array();
+    if ( empty( $options ) ) {
+        return $form;
+    }
+
+    foreach ( $form['fields'] as &$field ) {
+        if ( (int) $field->id !== <GF_FIELD_ID> ) {
+            continue;
+        }
+        $field->choices = array_map(
+            static fn( $opt ) => array( 'text' => $opt, 'value' => $opt ),
+            $options
+        );
+    }
+    return $form;
+}
+```
+
+### How custom fields render on the front-end
+
+You don't have to template anything — once `event_field_{field_key}` is set, EventKoi renders the field automatically. The label shown on the public event page comes from the field's **Field name** in Settings → Custom fields. Common ways to reference a custom field:
+
+- **Block bindings** — bind any block's content attribute to `event_field_{field_key}` in the editor's bindings picker
+- **Builder tokens** — use `{eventkoi_event_field_<field_key>}` in Beaver Builder, Bricks, Elementor, or Divi text fields
+- **`event_custom_fields` token** — renders every populated custom field on the event in one block; useful as a fallback panel
+
+See the [Event Submission Field Reference](./event-submission-fields.md) for the full token list and the bindings catalog.
 
 ---
 
