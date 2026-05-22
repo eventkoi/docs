@@ -160,20 +160,41 @@ add_action( 'gform_after_submission', function ( $entry, $form ) {
     }
 
     update_post_meta( $event_id, 'description', $description );
+
+    $start_utc      = $start_wall->setTimezone( $utc );
+    $end_utc        = $end_wall->setTimezone( $utc );
+    $start_iso      = $start_utc->format( 'Y-m-d\TH:i:s\Z' );
+    $end_iso        = $end_utc->format( 'Y-m-d\TH:i:s\Z' );
+    $start_mysql    = $start_utc->format( 'Y-m-d H:i:s' );
+    $end_mysql      = $end_utc->format( 'Y-m-d H:i:s' );
+    $start_ts       = $start_utc->getTimestamp();
+    $end_ts         = $end_utc->getTimestamp();
+    $is_multi_day   = ( $start_wall->format( 'Y-m-d' ) !== $end_wall->format( 'Y-m-d' ) );
+    $standard_type  = $is_multi_day ? 'continuous' : 'single';
+
     update_post_meta( $event_id, 'date_type', 'standard' );
-    update_post_meta( $event_id, 'standard_type', 'single' );
+    update_post_meta( $event_id, 'standard_type', $standard_type );
 
     update_post_meta(
         $event_id,
         'event_days',
         array(
             array(
-                'start_date' => $start_wall->setTimezone( $utc )->format( 'Y-m-d\TH:i:s\Z' ),
-                'end_date'   => $end_wall->setTimezone( $utc )->format( 'Y-m-d\TH:i:s\Z' ),
+                'start_date' => $start_iso,
+                'end_date'   => $end_iso,
                 'all_day'    => $is_all_day,
             ),
         )
     );
+
+    // Denormalized companion fields. EventKoi reads these for upcoming-index
+    // queries, REST orderby=start_date, the Events admin table, and the
+    // upcoming-events dashboard widget. Skipping them silently breaks all of
+    // those surfaces — set them every time you write event_days.
+    update_post_meta( $event_id, 'start_date', $start_mysql );
+    update_post_meta( $event_id, 'end_date', $end_mysql );
+    update_post_meta( $event_id, 'start_timestamp', $start_ts );
+    update_post_meta( $event_id, 'end_timestamp', $end_ts );
 
     update_post_meta( $event_id, 'timezone', wp_timezone_string() );
 
@@ -205,8 +226,10 @@ add_action( 'gform_after_submission', function ( $entry, $form ) {
 |---|---|
 | `post_type = eventkoi_event` | The EventKoi post type. |
 | `post_status = draft` | Submission goes to admin review. Change to `pending` if you prefer the pending-review queue. |
-| `date_type = standard`, `standard_type = single` | Treats this as a normal (non-recurring) single-day-or-multi-day event. |
+| `date_type = standard` | Non-recurring event (recurring is out of scope — see the section below). |
+| `standard_type = single` or `continuous` | `single` when the event starts and ends on the same calendar day; `continuous` when it spans multiple days. EventKoi uses this to decide how to render the date line on the public event page. |
 | `event_days[]` | The structured date payload EventKoi reads. Times are **converted from the site timezone to UTC** and stored as ISO `2026-05-25T16:30:00Z`. |
+| `start_date`, `end_date`, `start_timestamp`, `end_timestamp` | Denormalized companion fields. EventKoi's upcoming-index, the REST `orderby=start_date`, the admin Events table, and the dashboard upcoming-events widget all query these directly. **Always write them alongside `event_days`** — skipping them silently breaks every "next upcoming event" surface. |
 | `timezone` | Stores the site timezone for downstream rendering. |
 | `locations[]` | The structured location array. Only written if a venue name or address was provided. |
 | `attendance_mode = none` | The event accepts no RSVPs or tickets. Change to `rsvp` or `tickets` if you want to default to one. |
