@@ -26,6 +26,12 @@ End-to-end walkthrough for building a public **Submit an Event** form with Gravi
 
 ➡️ **[Gravity Forms Event Submission Guide](./gravity-forms-event-submission.md)**
 
+### Open Events List by Default
+
+Small custom code snippet for sites that want the main EventKoi admin menu item to open the Events list instead of the Dashboard.
+
+➡️ **[Open Events List by Default](./open-events-list-by-default.md)**
+
 ### Hooks & Filters
 
 Complete inventory of every action and filter exposed by EventKoi Pro and Lite — for extending the plugin without modifying core files.
