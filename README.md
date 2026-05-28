@@ -32,6 +32,12 @@ Small custom code snippet for sites that want the main EventKoi admin menu item 
 
 ➡️ **[Open Events List by Default](./open-events-list-by-default.md)**
 
+### Calendar Shortcode Queries
+
+Reference for filtering `[eventkoi_calendar]` list shortcodes by upcoming events, past events, date ranges, sort order, pagination, result limits, and recurring instances.
+
+➡️ **[Calendar Shortcode Queries](./calendar-shortcode-queries.md)**
+
 ### Hooks & Filters
 
 Complete inventory of every action and filter exposed by EventKoi Pro and Lite — for extending the plugin without modifying core files.
