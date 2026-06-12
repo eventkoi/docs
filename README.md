@@ -44,6 +44,12 @@ Add custom fields to the RSVP form with a code snippet: split the Name field int
 
 ➡️ **[RSVP Custom Fields](./rsvp-custom-fields.md)**
 
+### Checkout Custom Fields
+
+Add custom fields to the ticket checkout form with a code snippet: company name, meal choices, badge names, and more.
+
+➡️ **[Checkout Custom Fields](./checkout-custom-fields.md)**
+
 ### Ticket Terms and Conditions
 
 Where per-ticket and event-wide ticket terms display, and how to output them in templates with the `[eventkoi]` data shortcode.

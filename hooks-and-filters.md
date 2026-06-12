@@ -24,31 +24,32 @@ Click any name to jump to its full entry.
 
 | Filter / Action | Filter / Action |
 | --- | --- |
-| [`eventkoi_`](#eventkoi_) _f_ | [`eventkoi_get_event_tbc`](#eventkoi_get_event_tbc) _f_ |
-| [`eventkoi_admin_installed`](#eventkoi_admin_installed) _a_ | [`eventkoi_get_event_tbc_note`](#eventkoi_get_event_tbc_note) _f_ |
-| [`eventkoi_admin_menu_items`](#eventkoi_admin_menu_items) _f_ | [`eventkoi_get_event_thumbnail`](#eventkoi_get_event_thumbnail) _f_ |
-| [`eventkoi_admin_params`](#eventkoi_admin_params) _f_ | [`eventkoi_get_event_tickets_display_mode`](#eventkoi_get_event_tickets_display_mode) _f_ |
-| [`eventkoi_after_calendar_content`](#eventkoi_after_calendar_content) _a_ | [`eventkoi_get_event_tickets_enabled`](#eventkoi_get_event_tickets_enabled) _f_ |
-| [`eventkoi_after_event_content`](#eventkoi_after_event_content) _a_ | [`eventkoi_get_event_tickets_terms_conditions`](#eventkoi_get_event_tickets_terms_conditions) _f_ |
-| [`eventkoi_after_events_deleted`](#eventkoi_after_events_deleted) _a_ | [`eventkoi_get_event_timezone`](#eventkoi_get_event_timezone) _f_ |
-| [`eventkoi_after_events_duplicated`](#eventkoi_after_events_duplicated) _a_ | [`eventkoi_get_event_title`](#eventkoi_get_event_title) _f_ |
-| [`eventkoi_after_events_removed`](#eventkoi_after_events_removed) _a_ | [`eventkoi_get_event_type`](#eventkoi_get_event_type) _f_ |
-| [`eventkoi_after_events_restored`](#eventkoi_after_events_restored) _a_ | [`eventkoi_get_event_url`](#eventkoi_get_event_url) _f_ |
-| [`eventkoi_after_order_created`](#eventkoi_after_order_created) _a_ | [`eventkoi_get_event_virtual_url`](#eventkoi_get_event_virtual_url) _f_ |
-| [`eventkoi_after_order_updated`](#eventkoi_after_order_updated) _a_ | [`eventkoi_get_footer`](#eventkoi_get_footer) _f_ |
-| [`eventkoi_after_register_post_type`](#eventkoi_after_register_post_type) _a_ | [`eventkoi_get_header`](#eventkoi_get_header) _f_ |
-| [`eventkoi_after_register_taxonomy`](#eventkoi_after_register_taxonomy) _a_ | [`eventkoi_get_order_stats`](#eventkoi_get_order_stats) _f_ |
-| [`eventkoi_after_update_calendar_meta`](#eventkoi_after_update_calendar_meta) _a_ | [`eventkoi_get_private_api_key`](#eventkoi_get_private_api_key) _f_ |
-| [`eventkoi_after_update_event_meta`](#eventkoi_after_update_event_meta) _a_ | [`eventkoi_get_settings`](#eventkoi_get_settings) _f_ |
-| [`eventkoi_beaver_event_options_limit`](#eventkoi_beaver_event_options_limit) _f_ | [`eventkoi_get_start_date_g`](#eventkoi_get_start_date_g) _f_ |
-| [`eventkoi_beaver_route_occurrence_query`](#eventkoi_beaver_route_occurrence_query) _f_ | [`eventkoi_get_status_title`](#eventkoi_get_status_title) _f_ |
-| [`eventkoi_before_calendar_content`](#eventkoi_before_calendar_content) _a_ | [`eventkoi_get_stripe_currency`](#eventkoi_get_stripe_currency) _f_ |
-| [`eventkoi_before_event_content`](#eventkoi_before_event_content) _a_ | [`eventkoi_get_stripe_webhook_secret`](#eventkoi_get_stripe_webhook_secret) _f_ |
-| [`eventkoi_before_save_settings`](#eventkoi_before_save_settings) _a_ | [`eventkoi_get_summary`](#eventkoi_get_summary) _f_ |
-| [`eventkoi_before_update_calendar_meta`](#eventkoi_before_update_calendar_meta) _a_ | [`eventkoi_get_summary_from_string`](#eventkoi_get_summary_from_string) _f_ |
-| [`eventkoi_before_update_event_meta`](#eventkoi_before_update_event_meta) _a_ | [`eventkoi_get_template_asset`](#eventkoi_get_template_asset) _f_ |
-| [`eventkoi_block_live_stripe_on_staging`](#eventkoi_block_live_stripe_on_staging) _f_ | [`eventkoi_get_timezone_display`](#eventkoi_get_timezone_display) _f_ |
-| [`eventkoi_calendar_display_max_results`](#eventkoi_calendar_display_max_results) _f_ | [`eventkoi_installed`](#eventkoi_installed) _a_ |
+| [`eventkoi_`](#eventkoi_) _f_ | [`eventkoi_get_event_status`](#eventkoi_get_event_status) _f_ |
+| [`eventkoi_admin_installed`](#eventkoi_admin_installed) _a_ | [`eventkoi_get_event_tbc`](#eventkoi_get_event_tbc) _f_ |
+| [`eventkoi_admin_menu_items`](#eventkoi_admin_menu_items) _f_ | [`eventkoi_get_event_tbc_note`](#eventkoi_get_event_tbc_note) _f_ |
+| [`eventkoi_admin_params`](#eventkoi_admin_params) _f_ | [`eventkoi_get_event_thumbnail`](#eventkoi_get_event_thumbnail) _f_ |
+| [`eventkoi_after_calendar_content`](#eventkoi_after_calendar_content) _a_ | [`eventkoi_get_event_tickets_display_mode`](#eventkoi_get_event_tickets_display_mode) _f_ |
+| [`eventkoi_after_event_content`](#eventkoi_after_event_content) _a_ | [`eventkoi_get_event_tickets_enabled`](#eventkoi_get_event_tickets_enabled) _f_ |
+| [`eventkoi_after_events_deleted`](#eventkoi_after_events_deleted) _a_ | [`eventkoi_get_event_tickets_terms_conditions`](#eventkoi_get_event_tickets_terms_conditions) _f_ |
+| [`eventkoi_after_events_duplicated`](#eventkoi_after_events_duplicated) _a_ | [`eventkoi_get_event_timezone`](#eventkoi_get_event_timezone) _f_ |
+| [`eventkoi_after_events_removed`](#eventkoi_after_events_removed) _a_ | [`eventkoi_get_event_title`](#eventkoi_get_event_title) _f_ |
+| [`eventkoi_after_events_restored`](#eventkoi_after_events_restored) _a_ | [`eventkoi_get_event_type`](#eventkoi_get_event_type) _f_ |
+| [`eventkoi_after_order_created`](#eventkoi_after_order_created) _a_ | [`eventkoi_get_event_url`](#eventkoi_get_event_url) _f_ |
+| [`eventkoi_after_order_updated`](#eventkoi_after_order_updated) _a_ | [`eventkoi_get_event_virtual_url`](#eventkoi_get_event_virtual_url) _f_ |
+| [`eventkoi_after_register_post_type`](#eventkoi_after_register_post_type) _a_ | [`eventkoi_get_footer`](#eventkoi_get_footer) _f_ |
+| [`eventkoi_after_register_taxonomy`](#eventkoi_after_register_taxonomy) _a_ | [`eventkoi_get_header`](#eventkoi_get_header) _f_ |
+| [`eventkoi_after_update_calendar_meta`](#eventkoi_after_update_calendar_meta) _a_ | [`eventkoi_get_order_stats`](#eventkoi_get_order_stats) _f_ |
+| [`eventkoi_after_update_event_meta`](#eventkoi_after_update_event_meta) _a_ | [`eventkoi_get_private_api_key`](#eventkoi_get_private_api_key) _f_ |
+| [`eventkoi_beaver_event_options_limit`](#eventkoi_beaver_event_options_limit) _f_ | [`eventkoi_get_settings`](#eventkoi_get_settings) _f_ |
+| [`eventkoi_beaver_route_occurrence_query`](#eventkoi_beaver_route_occurrence_query) _f_ | [`eventkoi_get_start_date_g`](#eventkoi_get_start_date_g) _f_ |
+| [`eventkoi_before_calendar_content`](#eventkoi_before_calendar_content) _a_ | [`eventkoi_get_status_title`](#eventkoi_get_status_title) _f_ |
+| [`eventkoi_before_event_content`](#eventkoi_before_event_content) _a_ | [`eventkoi_get_stripe_currency`](#eventkoi_get_stripe_currency) _f_ |
+| [`eventkoi_before_save_settings`](#eventkoi_before_save_settings) _a_ | [`eventkoi_get_stripe_webhook_secret`](#eventkoi_get_stripe_webhook_secret) _f_ |
+| [`eventkoi_before_update_calendar_meta`](#eventkoi_before_update_calendar_meta) _a_ | [`eventkoi_get_summary`](#eventkoi_get_summary) _f_ |
+| [`eventkoi_before_update_event_meta`](#eventkoi_before_update_event_meta) _a_ | [`eventkoi_get_summary_from_string`](#eventkoi_get_summary_from_string) _f_ |
+| [`eventkoi_block_live_stripe_on_staging`](#eventkoi_block_live_stripe_on_staging) _f_ | [`eventkoi_get_template_asset`](#eventkoi_get_template_asset) _f_ |
+| [`eventkoi_calendar_display_max_results`](#eventkoi_calendar_display_max_results) _f_ | [`eventkoi_get_timezone_display`](#eventkoi_get_timezone_display) _f_ |
+| [`eventkoi_checkout_fields`](#eventkoi_checkout_fields) _f_ | [`eventkoi_installed`](#eventkoi_installed) _a_ |
 | [`eventkoi_currency`](#eventkoi_currency) _f_ | [`eventkoi_live_mode_enabled`](#eventkoi_live_mode_enabled) _f_ |
 | [`eventkoi_currency_locale`](#eventkoi_currency_locale) _f_ | [`eventkoi_locate_template`](#eventkoi_locate_template) _f_ |
 | [`eventkoi_current_theme_support`](#eventkoi_current_theme_support) _f_ | [`eventkoi_login_url`](#eventkoi_login_url) _f_ |
@@ -128,7 +129,6 @@ Click any name to jump to its full entry.
 | [`eventkoi_get_event_standard_type`](#eventkoi_get_event_standard_type) _f_ | [`eventkoi_timezone`](#eventkoi_timezone) _f_ |
 | [`eventkoi_get_event_start_date_iso`](#eventkoi_get_event_start_date_iso) _f_ | [`eventkoi_update_event_meta`](#eventkoi_update_event_meta) _f_ |
 | [`eventkoi_get_event_start_date_raw`](#eventkoi_get_event_start_date_raw) _f_ | [`eventkoi_updated`](#eventkoi_updated) _a_ |
-| [`eventkoi_get_event_status`](#eventkoi_get_event_status) _f_ |  |
 
 ## Events
 
@@ -2165,6 +2165,21 @@ apply_filters( 'eventkoi_rsvp_email_template', $default_body, $tags, $event_id, 
 
 - Pro: `includes/core/class-rsvps.php:1066`
 - Lite: `includes/core/class-rsvps.php:953`
+
+### `eventkoi_checkout_fields`
+
+_Pro + Lite · filter_
+
+Registers custom fields shown in the ticket checkout form. Same field shape as `eventkoi_rsvp_fields` (`key`, `label`, `type`, `required`, `options`, `placeholder`). Values are validated server-side and stored on the order: as order activity notes for Pro's native Stripe checkout, and as `_eventkoi_checkout_fields` meta plus order notes on WooCommerce orders. See the [Checkout Custom Fields guide](./checkout-custom-fields.md).
+
+**Fires:** When the ticket widget is rendered and when a checkout session is validated.
+
+```php
+apply_filters( 'eventkoi_checkout_fields', array(), $event_id );
+```
+
+- Pro: `includes/core/class-orders.php`
+- Lite: `includes/core/class-orders.php`
 
 ### `eventkoi_rsvp_fields`
 

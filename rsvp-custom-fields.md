@@ -18,7 +18,7 @@ EventKoi exposes three hooks:
 
 Registered fields are rendered automatically in the RSVP dialog, validated on the server, stored with the RSVP, shown when an attendee edits their RSVP, returned by the RSVP admin API, and included as extra columns in the CSV export.
 
-Where to put the snippets: a small custom plugin, your child theme's `functions.php`, or a code snippets plugin.
+Where to put the snippets: a small custom plugin, your child theme's `functions.php`, or a code snippets plugin. For the ticket checkout form, see [Checkout Custom Fields](./checkout-custom-fields.md).
 
 ---
 
