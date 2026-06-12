@@ -936,6 +936,21 @@ apply_filters( 'eventkoi_rendered_custom_fields', $output, self::$event_id );
 
 - Pro: `includes/core/class-event.php:514`
 
+### `eventkoi_rendered_tickets_terms_conditions`
+
+_Pro + Lite · filter_
+
+Filters the rendered HTML for the event-wide ticket terms and conditions, output by `[eventkoi data="tickets_terms_conditions"]`. See the [Ticket Terms and Conditions guide](./ticket-terms-conditions.md).
+
+**Fires:** Whenever the terms are rendered via the data shortcode or a dynamic tag.
+
+```php
+apply_filters( 'eventkoi_rendered_tickets_terms_conditions', $output, self::$event_id );
+```
+
+- Pro: `includes/core/class-event.php`
+- Lite: `includes/core/class-event.php`
+
 ### `eventkoi_rendered_event_capacity`
 
 _Pro + Lite · filter_
