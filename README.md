@@ -38,6 +38,12 @@ Reference for filtering `[eventkoi_calendar]` list shortcodes by upcoming events
 
 ➡️ **[Calendar Shortcode Queries](./calendar-shortcode-queries.md)**
 
+### RSVP Custom Fields
+
+Add custom fields to the RSVP form with a code snippet: split the Name field into first/last name, collect phone numbers, meal choices, and more.
+
+➡️ **[RSVP Custom Fields](./rsvp-custom-fields.md)**
+
 ### Hooks & Filters
 
 Complete inventory of every action and filter exposed by EventKoi Pro and Lite — for extending the plugin without modifying core files.

@@ -113,20 +113,22 @@ Click any name to jump to its full entry.
 | [`eventkoi_get_event_meta`](#eventkoi_get_event_meta) _f_ | [`eventkoi_rsvp_email_subject`](#eventkoi_rsvp_email_subject) _f_ |
 | [`eventkoi_get_event_post_status`](#eventkoi_get_event_post_status) _f_ | [`eventkoi_rsvp_email_tags`](#eventkoi_rsvp_email_tags) _f_ |
 | [`eventkoi_get_event_recurrence_overrides`](#eventkoi_get_event_recurrence_overrides) _f_ | [`eventkoi_rsvp_email_template`](#eventkoi_rsvp_email_template) _f_ |
-| [`eventkoi_get_event_recurrence_rules`](#eventkoi_get_event_recurrence_rules) _f_ | [`eventkoi_rsvp_qr_code`](#eventkoi_rsvp_qr_code) _f_ |
-| [`eventkoi_get_event_rsvp_allow_edit`](#eventkoi_get_event_rsvp_allow_edit) _f_ | [`eventkoi_rsvp_qr_url`](#eventkoi_rsvp_qr_url) _f_ |
-| [`eventkoi_get_event_rsvp_allow_guests`](#eventkoi_get_event_rsvp_allow_guests) _f_ | [`eventkoi_set_settings`](#eventkoi_set_settings) _f_ |
-| [`eventkoi_get_event_rsvp_auto_account`](#eventkoi_get_event_rsvp_auto_account) _f_ | [`eventkoi_single_calendar_template`](#eventkoi_single_calendar_template) _a_ |
-| [`eventkoi_get_event_rsvp_capacity`](#eventkoi_get_event_rsvp_capacity) _f_ | [`eventkoi_single_event_template`](#eventkoi_single_event_template) _a_ |
-| [`eventkoi_get_event_rsvp_enabled`](#eventkoi_get_event_rsvp_enabled) _f_ | [`eventkoi_taxonomy_objects_event_cal`](#eventkoi_taxonomy_objects_event_cal) _f_ |
-| [`eventkoi_get_event_rsvp_max_guests`](#eventkoi_get_event_rsvp_max_guests) _f_ | [`eventkoi_ticket_email_subject`](#eventkoi_ticket_email_subject) _f_ |
-| [`eventkoi_get_event_rsvp_sale_end`](#eventkoi_get_event_rsvp_sale_end) _f_ | [`eventkoi_ticket_email_tags`](#eventkoi_ticket_email_tags) _f_ |
-| [`eventkoi_get_event_rsvp_sale_start`](#eventkoi_get_event_rsvp_sale_start) _f_ | [`eventkoi_ticket_email_template`](#eventkoi_ticket_email_template) _f_ |
-| [`eventkoi_get_event_rsvp_show_remaining`](#eventkoi_get_event_rsvp_show_remaining) _f_ | [`eventkoi_ticket_qr_url`](#eventkoi_ticket_qr_url) _f_ |
-| [`eventkoi_get_event_schema`](#eventkoi_get_event_schema) _f_ | [`eventkoi_timezone`](#eventkoi_timezone) _f_ |
-| [`eventkoi_get_event_series_template`](#eventkoi_get_event_series_template) _f_ | [`eventkoi_update_event_meta`](#eventkoi_update_event_meta) _f_ |
-| [`eventkoi_get_event_standard_type`](#eventkoi_get_event_standard_type) _f_ | [`eventkoi_updated`](#eventkoi_updated) _a_ |
-| [`eventkoi_get_event_start_date_iso`](#eventkoi_get_event_start_date_iso) _f_ |  |
+| [`eventkoi_get_event_recurrence_rules`](#eventkoi_get_event_recurrence_rules) _f_ | [`eventkoi_rsvp_fields`](#eventkoi_rsvp_fields) _f_ |
+| [`eventkoi_get_event_rsvp_allow_edit`](#eventkoi_get_event_rsvp_allow_edit) _f_ | [`eventkoi_rsvp_payload`](#eventkoi_rsvp_payload) _f_ |
+| [`eventkoi_get_event_rsvp_allow_guests`](#eventkoi_get_event_rsvp_allow_guests) _f_ | [`eventkoi_rsvp_qr_code`](#eventkoi_rsvp_qr_code) _f_ |
+| [`eventkoi_get_event_rsvp_auto_account`](#eventkoi_get_event_rsvp_auto_account) _f_ | [`eventkoi_rsvp_qr_url`](#eventkoi_rsvp_qr_url) _f_ |
+| [`eventkoi_get_event_rsvp_capacity`](#eventkoi_get_event_rsvp_capacity) _f_ | [`eventkoi_rsvp_show_name_field`](#eventkoi_rsvp_show_name_field) _f_ |
+| [`eventkoi_get_event_rsvp_enabled`](#eventkoi_get_event_rsvp_enabled) _f_ | [`eventkoi_set_settings`](#eventkoi_set_settings) _f_ |
+| [`eventkoi_get_event_rsvp_max_guests`](#eventkoi_get_event_rsvp_max_guests) _f_ | [`eventkoi_single_calendar_template`](#eventkoi_single_calendar_template) _a_ |
+| [`eventkoi_get_event_rsvp_sale_end`](#eventkoi_get_event_rsvp_sale_end) _f_ | [`eventkoi_single_event_template`](#eventkoi_single_event_template) _a_ |
+| [`eventkoi_get_event_rsvp_sale_start`](#eventkoi_get_event_rsvp_sale_start) _f_ | [`eventkoi_taxonomy_objects_event_cal`](#eventkoi_taxonomy_objects_event_cal) _f_ |
+| [`eventkoi_get_event_rsvp_show_remaining`](#eventkoi_get_event_rsvp_show_remaining) _f_ | [`eventkoi_ticket_email_subject`](#eventkoi_ticket_email_subject) _f_ |
+| [`eventkoi_get_event_schema`](#eventkoi_get_event_schema) _f_ | [`eventkoi_ticket_email_tags`](#eventkoi_ticket_email_tags) _f_ |
+| [`eventkoi_get_event_series_template`](#eventkoi_get_event_series_template) _f_ | [`eventkoi_ticket_email_template`](#eventkoi_ticket_email_template) _f_ |
+| [`eventkoi_get_event_standard_type`](#eventkoi_get_event_standard_type) _f_ | [`eventkoi_ticket_qr_url`](#eventkoi_ticket_qr_url) _f_ |
+| [`eventkoi_get_event_start_date_iso`](#eventkoi_get_event_start_date_iso) _f_ | [`eventkoi_timezone`](#eventkoi_timezone) _f_ |
+|  | [`eventkoi_update_event_meta`](#eventkoi_update_event_meta) _f_ |
+|  | [`eventkoi_updated`](#eventkoi_updated) _a_ |
 
 ## Events
 
@@ -2148,6 +2150,48 @@ apply_filters( 'eventkoi_rsvp_email_template', $default_body, $tags, $event_id, 
 
 - Pro: `includes/core/class-rsvps.php:1066`
 - Lite: `includes/core/class-rsvps.php:953`
+
+### `eventkoi_rsvp_fields`
+
+_Pro only · filter_
+
+Registers custom fields shown in the RSVP form. Each field is an array with `key`, `label`, `type` (`text`, `email`, `tel`, `number`, `textarea`, `select`, `checkbox`), `required`, `options` (for `select`), and `placeholder`. Registered fields are rendered in the RSVP dialog, validated server-side, stored with the RSVP, and added to the CSV export. See the [RSVP Custom Fields guide](./rsvp-custom-fields.md).
+
+**Fires:** When the RSVP widget is rendered and when an RSVP submission is validated.
+
+```php
+apply_filters( 'eventkoi_rsvp_fields', array(), $event_id );
+```
+
+- Pro: `includes/core/class-rsvps.php`
+
+### `eventkoi_rsvp_payload`
+
+_Pro only · filter_
+
+Filters the prepared RSVP data (including custom `fields`) right before it is stored. Receives the raw request body as the second argument.
+
+**Fires:** On every RSVP create/update via the REST API, after sanitization and before saving.
+
+```php
+apply_filters( 'eventkoi_rsvp_payload', $payload, $data );
+```
+
+- Pro: `includes/api/class-rsvps.php`
+
+### `eventkoi_rsvp_show_name_field`
+
+_Pro only · filter_
+
+Controls whether the built-in Name input is shown in the RSVP form. Return `false` to hide it, e.g. when replacing it with `first_name` / `last_name` custom fields (EventKoi then composes the stored name from those values automatically).
+
+**Fires:** When frontend script parameters are localized.
+
+```php
+apply_filters( 'eventkoi_rsvp_show_name_field', true, $event_id );
+```
+
+- Pro: `includes/core/class-scripts.php`
 
 ### `eventkoi_rsvp_qr_code`
 
