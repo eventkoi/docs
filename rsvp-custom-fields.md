@@ -2,7 +2,7 @@
 
 Add your own fields to the RSVP form (for example a first/last name split, a phone number, or a dietary preference) with a small code snippet. No template overrides needed.
 
-Requires EventKoi 1.3.15.0 or later.
+Requires EventKoi 1.3.15.0 or later (works in both EventKoi Lite and Pro).
 
 ---
 

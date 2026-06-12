@@ -2153,7 +2153,7 @@ apply_filters( 'eventkoi_rsvp_email_template', $default_body, $tags, $event_id, 
 
 ### `eventkoi_rsvp_fields`
 
-_Pro only · filter_
+_Pro + Lite · filter_
 
 Registers custom fields shown in the RSVP form. Each field is an array with `key`, `label`, `type` (`text`, `email`, `tel`, `number`, `textarea`, `select`, `checkbox`), `required`, `options` (for `select`), and `placeholder`. Registered fields are rendered in the RSVP dialog, validated server-side, stored with the RSVP, and added to the CSV export. See the [RSVP Custom Fields guide](./rsvp-custom-fields.md).
 
@@ -2164,10 +2164,11 @@ apply_filters( 'eventkoi_rsvp_fields', array(), $event_id );
 ```
 
 - Pro: `includes/core/class-rsvps.php`
+- Lite: `includes/core/class-rsvps.php`
 
 ### `eventkoi_rsvp_payload`
 
-_Pro only · filter_
+_Pro + Lite · filter_
 
 Filters the prepared RSVP data (including custom `fields`) right before it is stored. Receives the raw request body as the second argument.
 
@@ -2178,10 +2179,11 @@ apply_filters( 'eventkoi_rsvp_payload', $payload, $data );
 ```
 
 - Pro: `includes/api/class-rsvps.php`
+- Lite: `includes/api/class-rsvps.php`
 
 ### `eventkoi_rsvp_show_name_field`
 
-_Pro only · filter_
+_Pro + Lite · filter_
 
 Controls whether the built-in Name input is shown in the RSVP form. Return `false` to hide it, e.g. when replacing it with `first_name` / `last_name` custom fields (EventKoi then composes the stored name from those values automatically).
 
@@ -2192,6 +2194,7 @@ apply_filters( 'eventkoi_rsvp_show_name_field', true, $event_id );
 ```
 
 - Pro: `includes/core/class-scripts.php`
+- Lite: `includes/core/class-scripts.php`
 
 ### `eventkoi_rsvp_qr_code`
 
